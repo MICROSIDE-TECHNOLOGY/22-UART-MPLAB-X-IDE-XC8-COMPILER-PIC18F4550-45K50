@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/c01d40879e2fa44d36cf9723b28126e9
+          gist_title: 22-MPLAB-ComunicaciónSerial-4550.c
+          gist_description: Prácticas MPLABX
+          github_file: Proyecto/PIC18F4550/22_UART.X/main.c
+          file_encoding: ISO-8859-1
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/b68d76a35cc91acdffe824633537a456
+          gist_title: 22-MPLAB-ComunicacionSerial.c
+          gist_description: Prácticas MPLABX
+          github_file: Proyecto/PIC18F45K50/22_SERIAL_UART.X/main.c
+          file_encoding: ISO-8859-1
